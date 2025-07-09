@@ -1,12 +1,14 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 
 const app = express();
+dotenv.config();
 app.use(cors());
 app.use(express.json());
 
 // ✅ Your Gemini API key (hardcoded for now)
-const GEMINI_API_KEY = "AIzaSyDJMuxqsmCxsM69G0dk3iF0HS5iPRxxOXA"; // Replace this!
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY; // Replace this!
 
 app.post("/api/chat", async (req, res) => {
   const { question } = req.body;
