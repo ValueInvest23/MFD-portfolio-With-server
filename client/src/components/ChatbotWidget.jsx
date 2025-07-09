@@ -25,9 +25,10 @@ export default function ChatbotWidget() {
         setMessages(newMessages);
         setInput("");
         setLoading(true);
+        const baseURL = "https://mfd-portfolio-with-server.onrender.com"
 
         try {
-            const response = await fetch("http://localhost:5000/api/chat", {
+            const response = await fetch(`${baseURL}/api/chat`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ question: userInput }),
@@ -97,8 +98,8 @@ export default function ChatbotWidget() {
                                     <div
                                         key={idx}
                                         className={`max-w-[80%] p-2 rounded-lg ${msg.sender === "user"
-                                                ? "ml-auto bg-blue-100 text-right"
-                                                : "mr-auto bg-green-100 text-left"
+                                            ? "ml-auto bg-blue-100 text-right"
+                                            : "mr-auto bg-green-100 text-left"
                                             }`}
                                     >
                                         <span className="block">{msg.text}</span>
