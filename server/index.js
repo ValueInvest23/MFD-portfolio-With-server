@@ -62,6 +62,7 @@ ${question}
     );
 
     const data = await response.json();
+    console.log(data);
 
     // ✅ Extract safe answer
     const answer =
